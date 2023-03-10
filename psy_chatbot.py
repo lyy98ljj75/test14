@@ -5,12 +5,12 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
 
-@st.cache_data(ttl=500*3600)
+@st.cache_data(ttl=10000*3600)
 def cached_model():
     model=SentenceTransformer('jhgan/ko-sroberta-multitask')
     return model
 
-@st.cache_data(ttl=500*3600)
+@st.cache_data(ttl=10000*3600)
 def get_dataset():
     targetUrl='https://raw.githubusercontent.com/lyy98ljj75/wellness/main/wellness_dataset.csv'
     df=pd.read_csv(targetUrl)
